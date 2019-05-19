@@ -73,8 +73,8 @@ def twilio_view(f):
 
             # Now that we have all the required information to perform forgery
             # checks, we'll actually do the forgery check.
-            if not validator.validate(url, request.POST, signature) and not getattr(settings, "SMS_DEBUG", False):
-                logger.error(
+            if not validator.validate(url, request.POST, signature):
+                print(
                     "Twilio: Invalid url signature %s - %s - %s",
                     url, request.POST, signature, extra={"request": request}
                 )
