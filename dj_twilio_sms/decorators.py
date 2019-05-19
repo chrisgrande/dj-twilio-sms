@@ -64,9 +64,9 @@ def twilio_view(f):
                 # Ensure the original requested url is tested for validation
                 # Prevents breakage when processed behind a proxy server
                 if "HTTP_X_FORWARDED_SERVER" in request.META:
-                	print("Forwarded")
+                    print("Forwarded")
                     url = "{0}://{1}{2}".format(request.META["HTTP_X_FORWARDED_PROTO"], request.META["HTTP_X_FORWARDED_SERVER"], request.META["REQUEST_URI"])
-                	print(url)
+                    print(url)
                 signature = request.META["HTTP_X_TWILIO_SIGNATURE"]
             except (AttributeError, KeyError) as e:
                 logger.exception("Twilio: Missing META param", extra={"request": request})
