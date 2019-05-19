@@ -76,7 +76,7 @@ def twilio_view(f):
             if not validator.validate(url, request.POST, signature):
                 print(
                     "Twilio: Invalid url signature %s - %s - %s",
-                    url, request.POST, signature, extra={"request": request}
+                    url, request.POST, signature
                 )
                 return HttpResponseForbidden("Invalid signature")
 
